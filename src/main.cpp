@@ -13,19 +13,18 @@ int main() {
     indice.InserePasta("arquivos");
     Norma norma(indice);
     LeitorPesquisa leitor;
-    string continuar = "s";
+    string s = "s";
 
     system("cls|clear");
 
-    while(continuar != "n") {
-        multiset <string> pesquisa = leitor.Pesquisa(indice);
+    cout << "Gostaria de fazer uma pesquisa? (s/n): ";
+    cin >> s;
+    if(s != "s") return 0;
 
-        Rank rank(pesquisa, indice, norma);
-        rank.imprimir(10);
+    multiset <string> pesquisa = leitor.Pesquisa(indice);
 
-        cout << endl << "Gostaria de pesquisar mais uma vez? (s/n): ";
-        cin >> continuar;
-    }
+    Rank rank(pesquisa, indice, norma);
+    rank.imprimir(10);
     
     return 0;
 }
